@@ -9,6 +9,7 @@ import { Todo } from '../../models/todo.model';
   imports: [CommonModule],
 })
 export class TodoDetails {
+  // TODO: get value from input in todos.component
   public todo: Todo = {
     id: 0,
     title: 'test todo',

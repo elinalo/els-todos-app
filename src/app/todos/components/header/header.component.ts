@@ -11,5 +11,5 @@ import { Component } from "@angular/core";
 export class HeaderComponent {
   constructor() {}
 
-  public todosHeader: string = 'todos';
+  public todosHeader: string = `el's todos`;
 }
