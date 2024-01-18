@@ -1,3 +1,14 @@
 <div class="todoapp">
-    <app-todos-header></app-todos-header>
+  <app-todos-header></app-todos-header>
+
+  <input
+    class="new-todo"
+    placeholder="what needs to be done?"
+    autoFocus
+    [value]="text"
+    (keyup)="changeText($event)"
+    (keyup.enter)="addTodo()"
+  />
+
+  <app-todo-details></app-todo-details>
 </div>
