@@ -1,5 +1,5 @@
 <header class="header">
-    <h1>todos</h1>
+    <h1>{{todosHeader}}</h1>
     <input 
         class="new-todo" 
         placeholder="what needs to be done?" 
@@ -8,4 +8,5 @@
         (keyup)=changeText($event)
         (keyup.enter)="addTodo()"
     /> 
+
 </header>
