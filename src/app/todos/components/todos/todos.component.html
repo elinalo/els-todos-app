@@ -9,14 +9,38 @@
     [value]="text"
     (keyup)="changeText($event)"
     (keyup.enter)="addTodo()"
-    [(ngModel)]="todo.title"
   />
 
-  <br />
-
   <div class="todos-list">
-    <p>{{ todo.title }}</p>
+    <br />
+    <h2>todos</h2>
+    <ul class="todos">
+      <li *ngFor="let todo of todos">
+        <button
+          type="button"
+          (click)="onSelect(todo)"
+          [class.selected]="todo === selectedTodo"
+        >
+          <span class="badge">{{ todo.id }}</span>
+          <span class="title">{{ todo.title }}</span>
+          <span class="description">{{ todo.description }}</span>
+        </button>
+      </li>
+    </ul>
   </div>
 
-  <app-todo-details></app-todo-details>
+  <div *ngIf="selectedTodo">
+    <h2>{{ selectedTodo.title | uppercase }} Details</h2>
+    <div>id: {{ selectedTodo.id }}</div>
+    <div>
+      <label for="hero-title">todo title: </label>
+      <input
+        id="hero-title"
+        [(ngModel)]="selectedTodo.title"
+        placeholder="title"
+      />
+    </div>
+  </div>
+
+  <!-- <app-todo-details></app-todo-details> -->
 </div>

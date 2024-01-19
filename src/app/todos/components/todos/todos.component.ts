@@ -1,25 +1,31 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Todo } from '../../models/todo.model';
 import { TodoDetails } from '../todo-details/todo-details.component';
 import { FormsModule } from '@angular/forms';
+import { TODOS } from 'src/app/mock data/mock-todos';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.scss'],
   standalone: true,
-  imports: [CommonModule, HeaderComponent, TodoDetails, FormsModule],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    TodoDetails,
+    FormsModule,
+    NgFor,
+    NgIf,
+  ],
 })
 export class TodosComponent {
   // TODO: pass input value into todo-details.component
 
   public text: string = '';
-  public todo: Todo = {
-    id: 0,
-    title: 'test todo',
-    // description:     // TODO: add description
-  };
+  public todos = TODOS;
+  public selectedTodo?: Todo;
 
   changeText(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -29,5 +35,9 @@ export class TodosComponent {
 
   addTodo(): void {
     console.log('addTodo', this.text);
+  }
+
+  onSelect(todo: Todo): void {
+    this.selectedTodo = todo;
   }
 }
