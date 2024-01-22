@@ -1,7 +1,7 @@
 <div class="todoapp">
   <app-todos-header></app-todos-header>
 
-  <input
+  <!-- <input
     id="todo-input"
     class="new-todo"
     placeholder="add a new todo"
@@ -9,7 +9,7 @@
     [value]="text"
     (keyup)="changeText($event)"
     (keyup.enter)="addTodo()"
-  />
+  /> -->
 
   <div class="todos-list">
     <br />
@@ -29,18 +29,5 @@
     </ul>
   </div>
 
-  <div *ngIf="selectedTodo">
-    <h2>{{ selectedTodo.title | uppercase }} Details</h2>
-    <div>id: {{ selectedTodo.id }}</div>
-    <div>
-      <label for="hero-title">todo title: </label>
-      <input
-        id="hero-title"
-        [(ngModel)]="selectedTodo.title"
-        placeholder="title"
-      />
-    </div>
-  </div>
-
-  <!-- <app-todo-details></app-todo-details> -->
+  <app-todo-details [todo]="selectedTodo"></app-todo-details>
 </div>
