@@ -4,7 +4,6 @@ import { HeaderComponent } from '../header/header.component';
 import { Todo } from '../../models/todo.model';
 import { TodoDetails } from '../todo-details/todo-details.component';
 import { FormsModule } from '@angular/forms';
-import { TODOS } from 'src/app/mock-data/mock-todos';
 import { TodoService } from '../../todo.service';
 
 @Component({
@@ -48,6 +47,8 @@ export class TodosComponent implements OnInit {
   }
 
   getTodos(): void {
-    this.todos = this.todoService.getTodos();
+    this.todoService
+      .getTodos()
+      .subscribe((todos: Todo[]) => (this.todos = todos));
   }
 }
