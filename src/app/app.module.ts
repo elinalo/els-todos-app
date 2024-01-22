@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { TodosModule } from 'src/app/todos/todos.module';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { TodosModule } from 'src/app/todos/todos.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     TodosModule,
+    NotificationsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
