@@ -21,9 +21,8 @@ import { TODOS } from 'src/app/mock data/mock-todos';
   ],
 })
 export class TodosComponent {
-  // TODO: pass input value into todo-details.component
-
   public text: string = '';
+  public todosHeader: string = `Todo's`;
   public todos = TODOS;
   public selectedTodo?: Todo;
 

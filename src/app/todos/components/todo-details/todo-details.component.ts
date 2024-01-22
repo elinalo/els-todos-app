@@ -1,18 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, NgIf, UpperCasePipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { Todo } from '../../models/todo.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-details',
   templateUrl: './todo-details.component.html',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgIf, UpperCasePipe, FormsModule],
 })
 export class TodoDetails {
-  // TODO: get value from input in todos.component
-  public todo: Todo = {
-    id: 0,
-    title: 'test todo',
-    // description:     // TODO: add description
-  };
+  @Input() todo?: Todo;
 }
