@@ -5,6 +5,7 @@ import { Todo } from '../../models/todo.model';
 import { TodoDetails } from '../todo-details/todo-details.component';
 import { FormsModule } from '@angular/forms';
 import { TodoService } from '../../todo.service';
+import { NotificationService } from 'src/app/notifications/notification.service';
 
 @Component({
   selector: 'app-todos',
@@ -26,7 +27,10 @@ export class TodosComponent implements OnInit {
   public todos: Todo[] = [];
   public selectedTodo?: Todo;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.getTodos();
@@ -40,10 +44,14 @@ export class TodosComponent implements OnInit {
 
   addTodo(): void {
     console.log('addTodo', this.text);
+    this.notificationService.add(`TodosComponent: added todo ${this.text}`);
   }
 
   onSelect(todo: Todo): void {
     this.selectedTodo = todo;
+    this.notificationService.add(
+      `TodosComponent: selected todo id=${todo.description}`
+    );
   }
 
   getTodos(): void {
