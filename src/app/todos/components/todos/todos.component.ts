@@ -1,10 +1,11 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Todo } from '../../models/todo.model';
 import { TodoDetails } from '../todo-details/todo-details.component';
 import { FormsModule } from '@angular/forms';
-import { TODOS } from 'src/app/mock data/mock-todos';
+import { TODOS } from 'src/app/mock-data/mock-todos';
+import { TodoService } from '../../todo.service';
 
 @Component({
   selector: 'app-todos',
@@ -20,11 +21,17 @@ import { TODOS } from 'src/app/mock data/mock-todos';
     NgIf,
   ],
 })
-export class TodosComponent {
+export class TodosComponent implements OnInit {
   public text: string = '';
   public todosHeader: string = `Todo's`;
-  public todos = TODOS;
+  public todos: Todo[] = [];
   public selectedTodo?: Todo;
+
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {
+    this.getTodos();
+  }
 
   changeText(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -38,5 +45,9 @@ export class TodosComponent {
 
   onSelect(todo: Todo): void {
     this.selectedTodo = todo;
+  }
+
+  getTodos(): void {
+    this.todos = this.todoService.getTodos();
   }
 }
