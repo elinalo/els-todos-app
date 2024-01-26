@@ -12,14 +12,7 @@ import { NotificationService } from 'src/app/notifications/notification.service'
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    HeaderComponent,
-    TodoDetails,
-    FormsModule,
-    NgFor,
-    NgIf,
-  ],
+  imports: [CommonModule, TodoDetails, FormsModule, NgFor, NgIf],
 })
 export class TodosComponent implements OnInit {
   public text: string = '';

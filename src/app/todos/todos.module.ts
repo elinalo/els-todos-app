@@ -5,20 +5,19 @@ import { HeaderComponent } from './components/header/header.component';
 import { TodoDetails } from './components/todo-details/todo-details.component';
 import { NotificationService } from '../notifications/notification.service';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: TodosComponent,
-  },
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: TodosComponent,
+//   },
+// ];
 
 @NgModule({
   declarations: [],
   imports: [
-    HeaderComponent,
-    TodosComponent,
-    RouterModule.forChild(routes),
-    TodoDetails,
+    //TodosComponent,
+    // RouterModule.forChild(routes),
+    //TodoDetails,
   ],
 })
 export class TodosModule {

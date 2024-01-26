@@ -5,6 +5,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { TodosModule } from 'src/app/todos/todos.module';
 import { NotificationsComponent } from './notifications/components/notifications.component';
+import { HeaderComponent } from './todos/components/header/header.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { NotificationsComponent } from './notifications/components/notifications
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HeaderComponent,
     TodosModule,
     NotificationsComponent,
   ],
