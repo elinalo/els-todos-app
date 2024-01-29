@@ -7,13 +7,14 @@ import { TodosModule } from 'src/app/components/todos/todos.module';
 import { NotificationsComponent } from './notifications/components/notifications.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { TodoDetailsComponent } from './components/todos/components/todo-details/todo-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     HeaderComponent,
     TodosModule,
