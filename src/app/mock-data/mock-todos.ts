@@ -1,4 +1,4 @@
-import { Todo } from '../todos/models/todo.model';
+import { Todo } from '../models/todo.model';
 
 export const TODOS: Todo[] = [
   { id: 12, title: 'Einkaufen', description: 'Eistee, Eier, Frischkäse, Brot' },
